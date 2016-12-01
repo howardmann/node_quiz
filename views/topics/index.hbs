@@ -1,0 +1,11 @@
+<h2>Topics</h2>
+
+{{#each this}}
+<p>{{name}}</p>
+<ul>
+  {{#each questions}}
+    <li>Q: {{question}}</li>
+    <li>A: {{answer}}</li>
+  {{/each}}
+</ul>
+{{/each}}
