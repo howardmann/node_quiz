@@ -30,8 +30,6 @@ exports.seed = function(knex, Promise) {
     knex('topics').del(),
 
     knex('topics').insert(topics, 'id'),
-
-    knex('questions').insert({question: 'What is the capital of Poland?', answer: 'Warsaw', topic_id: knex('topics').where({name: 'geography'}).select('id')}, 'id'),
-    knex('questions').insert({question: "Canada's highest mountain is located in which province or territory", answer: 'Yukon', topic_id: knex('topics').where({name: 'geography'}).select('id')}, 'id')
+    knex('questions').insert(questions, 'id')
   );
 };
