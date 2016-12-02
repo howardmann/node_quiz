@@ -13,8 +13,12 @@ module.exports = {
 
   production: {
     client: 'pg',
-    ssl: true,
-    connection: process.env.DATABASE_URL
+    connection: {
+      host: 'ec2-54-163-254-48.compute-1.amazonaws.com',
+      user: 'fdmaefajoouwpq',
+      password: 'stTfCZ3neUD9Pr9gtC01LgLX93',
+      database: '5432/damc31c8bhoc65'
+    }
   }
 
 };
