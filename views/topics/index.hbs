@@ -1,11 +1,17 @@
 <h2>Topics</h2>
 
-{{#each this}}
-<p>{{name}}</p>
-<ul>
-  {{#each questions}}
-    <li>Q: {{question}}</li>
-    <li>A: {{answer}}</li>
-  {{/each}}
-</ul>
+{{#each data}}
+    <p>{{name}}</p>
+    <ul>
+        {{#each questions}}
+            <li>Q: {{question}}</li>
+            <li>A: {{answer}}</li>
+        {{/each}}
+    </ul>
+
+    <form method="POST" action="/topics/{{id}}">
+        <input type="hidden" name="_method" value="DELETE">
+        <button>Delete</button>
+    </form>
+    <a href="/topics/{{id}}/edit"><button>Edit</button></a>
 {{/each}}

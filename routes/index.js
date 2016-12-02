@@ -11,11 +11,19 @@ router.get('/', function(req, res, next) {
 // TOPICS
 router
   .get('/topics', topics.index)
-  .get('/topics/:id', topics.show);
+  .get('/topics/new', topics.new)
+  .post('/topics', topics.create)
+  .get('/topics/:id', topics.show)
+  .get('/topics/:id/edit', topics.edit)
+  .put('/topics/:id', topics.update)
+  .delete('/topics/:id', topics.destroy);
 
 // QUESTIONS
 router
   .get('/questions', questions.index)
-  .get('/questions/:id', questions.show);
+  .get('/questions/:id', questions.show)
+  .post('/questions', questions.create)
+  .put('/questions/:id', questions.update)
+  .delete('/questions/:id', questions.destroy);
 
 module.exports = router;
