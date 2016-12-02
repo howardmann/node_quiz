@@ -25,11 +25,20 @@ exports.seed = function(knex, Promise) {
   ];
 
   // Deletes ALL existing entries
-  return Promise.join(
-    knex('questions').del(),
-    knex('topics').del(),
+  // return Promise.join(
+  //   knex('questions').del(),
+  //   knex('topics').del(),
+  //
+  //   knex('topics').insert(topics, 'id'),
+  //   knex('questions').insert(questions, 'id')
+  // );
+  return knex('questions').del()
+    .then(function(){
+      return knex('topics').del()
+    }).then(function(){
+      return knex('topics').insert(topics, 'id')
+    }).then(function(){
+      return knex('questions').insert(questions, 'id');
+    })
 
-    knex('topics').insert(topics, 'id'),
-    knex('questions').insert(questions, 'id')
-  );
 };
