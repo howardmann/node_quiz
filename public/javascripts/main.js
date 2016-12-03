@@ -38,36 +38,33 @@ var QuestionView = Backbone.View.extend({
 });
 
 var TopicDetailedView = Backbone.View.extend({
+  className: 'topic-detailed-view',
+
   initialize: function(){
     this.model.on('change', this.render, this);
   },
 
   events: {
-    'click .start': 'firstQuestion',
     'click .reveal-answer': 'revealAnswer',
     'click .next': 'nextQuestion'
   },
 
-  template: Handlebars.compile('<h2>Trivia: {{name}}</h2><button class="start">Start</button>{{#each questions}} <div class="question"><p>Q: {{question}}?</p> <p> A: <a href="#" class="reveal-answer">Click to reveal</a> <span class="answer">{{answer}}</span></p><br/><p><a href="#" class="next">Next</a></p> </div>{{/each}}'),
+  template: Handlebars.compile('<h2>Trivia: {{name}}</h2>{{#each questions}} <div class="question"><p>Q: {{question}}?</p> <p> A: <a href="#" class="reveal-answer">Click to reveal</a> <span class="answer">{{answer}}</span></p><br/><p><a href="#" class="next">Next</a></p> </div>{{/each}}'),
 
   render: function(){
-    this.$el.html(this.template(this.model.attributes));
+    var $this = this.$el
+    $this.html(this.template(this.model.attributes));
+    // Hide all questions except the first
+    $this.find('.question').not(":first").hide();
     return this;
-  },
-
-  firstQuestion: function(e){
-    var $firstQ = this.$el.find('.question').first()
-    $(e.target).fadeOut('fast', function(){
-      $firstQ.fadeIn();
-    });
   },
 
   revealAnswer: function(e){
     e.preventDefault();
-    var target = $(e.target);
-    target.fadeOut('fast', function(){
-      target.next('.answer').fadeIn(1500, function(){
-        target.closest('.question').find('.next').fadeIn('slow');
+    var $target = $(e.target);
+    $target.fadeOut('fast', function(){
+      $target.next('.answer').fadeIn(1500, function(){
+        $target.closest('.question').find('.next').fadeIn('slow');
       });
     });
   },
