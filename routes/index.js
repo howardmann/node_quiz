@@ -21,6 +21,7 @@ router
 // QUESTIONS
 router
   .get('/questions', questions.index)
+  .get('/questions/new', questions.new)
   .get('/questions/:id', questions.show)
   .post('/questions', questions.create)
   .put('/questions/:id', questions.update)

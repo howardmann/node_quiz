@@ -1,4 +1,5 @@
 var Question = require('../models/question');
+var Topic = require('../models/topic');
 
 exports.index = function(req, res, next) {
   Question
@@ -17,12 +18,25 @@ exports.show = function(req, res, next) {
     }, next)
 };
 
+exports.new = (req, res, next) => {
+  Topic
+    .fetchAll()
+    .then(data => {
+      console.log(data.toJSON());
+      res.render('questions/new', {
+        topics: data.toJSON()
+      });
+    }, next)
+
+};
+
 exports.create = (req, res, next) => {
   Question
     .forge({question: req.body.question, answer: req.body.answer, topic_id: req.body.topic_id})
     .save(null, {method: 'insert', require:true})
     .then(data => {
-      res.json(data);
+      res.redirect('/#');
+      // res.json(data);
     }, next)
 };
 
