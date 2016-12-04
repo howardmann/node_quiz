@@ -5,19 +5,10 @@ var Topic = Backbone.Model.extend({
   urlRoot: '/topics'
 });
 
-var Question = Backbone.Model.extend({
-  urlRoot: '/questions'
-});
-
 // ======= Collections
 var Topics = Backbone.Collection.extend({
   url: '/topics',
   model: Topic
-});
-
-var Questions = Backbone.Collection.extend({
-  url: '/questions',
-  model: Question
 });
 
 // ====== View single
@@ -25,14 +16,6 @@ var TopicView = Backbone.View.extend({
   template: Handlebars.compile('<h3><a href="#topics/{{id}}">{{name}}</a></h3>'),
   render: function(){
     this.$el.html(this.template(this.model.attributes));
-    return this;
-  }
-});
-
-var QuestionView = Backbone.View.extend({
-  template: Handlebars.compile('<p>Q: {{question}}?</p>'),
-  render: function(){
-    this.el.html(this.template(this.model.attributes));
     return this;
   }
 });
@@ -102,17 +85,6 @@ var TopicListView = Backbone.View.extend({
   }
 });
 
-var QuestionListView = Backbone.View.extend({
-  addOne: function(topic) {
-    var view = new QuestionView({model: topic});
-    this.$el.append(view.render().el);
-  },
-
-  render: function(){
-    this.collection.each(this.addOne, this);
-    return this;
-  }
-});
 
 // ====== Router
 var Router = Backbone.Router.extend({

@@ -5,7 +5,9 @@ exports.index = function(req, res, next) {
   Question
     .fetchAll({withRelated: ['topic']})
     .then(data => {
-      res.json(data);
+      res.render('questions/index', {
+        data: data.toJSON()
+      })
     }, next)
 };
 
