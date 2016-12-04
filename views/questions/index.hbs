@@ -1,4 +1,18 @@
-<h2>All questions</h2>
+<h2>All questions by topic:</h2>
 {{#each data}}
-  <p>{{question}}</p>
+  <h3>{{topic}}</h3>
+  <ol>
+    {{#each questions}}
+      <li>Q: {{question}}</li>
+      <ul>
+        <li>A: {{answer}} {{id}}</li>
+        <li>
+          <form action="/questions/{{id}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete">
+          </form>
+        </li>
+      </ul>
+    {{/each}}
+  </ol>
 {{/each}}

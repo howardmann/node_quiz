@@ -9,7 +9,7 @@
   },
   "engines": {
     "node": "6.7.0"
-  },  
+  },
   "dependencies": {
     "body-parser": "~1.15.2",
     "bookshelf": "^0.10.2",
@@ -24,6 +24,7 @@
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
     "pg": "^6.1.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "underscore": "^1.8.3"
   }
 }

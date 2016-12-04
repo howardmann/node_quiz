@@ -1,12 +1,20 @@
 var Question = require('../models/question');
 var Topic = require('../models/topic');
+var _ = require('underscore');
 
 exports.index = function(req, res, next) {
   Question
     .fetchAll({withRelated: ['topic']})
     .then(data => {
+      var questions = data.toJSON();
+      var topics = _.uniq(questions.map(el => el.topic.name));
+
+      var dataSort = topics.map(function(el){
+        return {topic: el, questions: questions.filter(question => question.topic.name === el )};
+      });
+      console.log(dataSort);
       res.render('questions/index', {
-        data: data.toJSON()
+        data: dataSort
       })
     }, next)
 };
@@ -48,7 +56,7 @@ exports.destroy = (req, res, next) => {
     .fetch()
     .then( topic => {
       topic.destroy({require:true})
-      .then(res.json('success'));
+      .then(res.redirect('/#'));
     }, next)
 };
 
