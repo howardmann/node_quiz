@@ -45,11 +45,21 @@ var TopicDetailedView = Backbone.View.extend({
   revealAnswer: function(e){
     e.preventDefault();
     var $target = $(e.target);
-    $target.fadeOut('fast', function(){
-      $target.next('.answer').fadeIn(1500, function(){
-        $target.closest('.question').find('.next').fadeIn('slow');
-      });
-    });
+
+    // Refactored using jQuery promise and pipe vs. callback hell
+    $target.fadeOut('fast').promise()
+      .pipe(function(){
+        return $target.next('.answer').fadeIn(1500);
+      })
+      .pipe(function(){
+        return $target.closest('.question').find('.next').fadeIn('slow');
+      })
+
+    // $target.fadeOut('fast', function(){
+    //   $target.next('.answer').fadeIn(1500, function(){
+    //     $target.closest('.question').find('.next').fadeIn('slow');
+    //   });
+    // });
   },
 
   nextQuestion: function(e){
