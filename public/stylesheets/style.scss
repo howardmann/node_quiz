@@ -148,7 +148,7 @@ ul ul {
   height: calc(100vh - 80px);
   text-align: center;
   p {
-    font-family: OpenSans-Bold;
+    font-weight: 700;
     font-size: 20px;
     margin-top: 75px;
     color: #FFFFFF;
@@ -176,7 +176,8 @@ header {
 }
 
 header .logo {
-  font-family: 'TitilliumWeb-Black';
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
   font-size: 36px;
   color: #80BD01;
   line-height: 80px;
@@ -189,7 +190,8 @@ header.active {
 }
 
 nav a {
-  font-family: 'TitilliumWeb-Regular';
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
   font-size: 24px;
   color: #999B94;
   line-height: 80px;
@@ -203,7 +205,7 @@ nav a {
 }
 .card {
   height: 320px;
-  font-family: 'OpenSans-Bold';
+  font-weight: 700;
   font-size: 20px;
   color: black;
   border: 5px solid white;
@@ -258,12 +260,12 @@ nav a {
 }
 .question p, .answer {
   font-size: 31px;
-  font-family: 'OpenSans-Extrabold';
+  font-weight: 800;
   padding: 20px;
 }
 
 .card-topic {
-  font-family: 'OpenSans-Bold';
+  font-weight: 700;
   font-size: 20px;
   position: absolute;
   top: 0px;
@@ -275,7 +277,7 @@ nav a {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
   border-radius: 5px;
   /* Reveal: */
-  font-family: 'OpenSans-Bold';
+  font-weight: 700;
   font-size: 20px;
   color: white;
   padding: 9px 29px;
@@ -361,7 +363,7 @@ fieldset {
     margin-top: 20%;
   }
   .question p, .answer {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
