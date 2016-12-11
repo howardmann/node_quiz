@@ -17,8 +17,6 @@ var TopicView = Backbone.View.extend({
 
   template: Handlebars.compile('<a href="#topics/{{name}}"><div class="card {{name}} flex-valign center"><p>{{name}}</p></div></a>'),
 
-  // template: Handlebars.compile('<h3><a href="#topics/{{id}}">{{name}}</a></h3>'),
-
   render: function(){
     this.$el.html(this.template(this.model.attributes));
     return this;
