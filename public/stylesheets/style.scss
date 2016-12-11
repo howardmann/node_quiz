@@ -253,7 +253,9 @@ nav a {
   border: 5px solid white;
   position: relative;
 }
-
+.question {
+  margin-top: 8%;
+}
 .question p, .answer {
   font-size: 31px;
   font-family: 'OpenSans-Extrabold';
@@ -267,7 +269,7 @@ nav a {
   top: 0px;
 }
 
-.reveal-answer, .next, .new-topic, .submit-question{
+.btn, .reveal-answer, .next, .new-topic, .submit-question{
     /* Answer: */
   background: #80BD01;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
@@ -280,10 +282,7 @@ nav a {
 }
 
 .next {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  bottom: 20%;
-  left: 50%;
+  margin: 0px;
 }
 
 .new-topic {
@@ -357,6 +356,12 @@ fieldset {
   }
   .sm-hide {
     display: none;
+  }
+  .question {
+    margin-top: 20%;
+  }
+  .question p, .answer {
+    font-size: 24px;
   }
 }
 

@@ -35,7 +35,7 @@ var TopicDetailedView = Backbone.View.extend({
     'click .next': 'nextQuestion'
   },
 
-  template: Handlebars.compile('<div class="card-question  {{name}} flex-valign center"><p class="card-topic col col-11 offset-1 left">{{name}}</p>{{#each questions}} <div class="question"><p>Q: {{question}}?</p> <p> <a href="#" class="reveal-answer">Reveal</a> <span class="answer">{{answer}}</span></p><br/><p><a href="#" class="next">Next</a></p> </div>{{/each}}</div>'),
+  template: Handlebars.compile('<div class="card-question  {{name}} center"><p class="card-topic col col-11 offset-1 left">{{name}}</p>{{#each questions}} <div class="question col sm-col-12 col-8 offset-2"><p>Q: {{question}}?</p> <p> <a href="#" class="reveal-answer btn">Reveal</a> <span class="answer">{{answer}}</span></p><span><a href="#" class="next btn">Next</a></span> </div>{{/each}}</div>'),
 
   render: function(){
     var $this = this.$el
@@ -57,12 +57,6 @@ var TopicDetailedView = Backbone.View.extend({
       .pipe(function(){
         return $target.closest('.question').find('.next').fadeIn('slow');
       })
-
-    // $target.fadeOut('fast', function(){
-    //   $target.next('.answer').fadeIn(1500, function(){
-    //     $target.closest('.question').find('.next').fadeIn('slow');
-    //   });
-    // });
   },
 
   nextQuestion: function(e){
@@ -74,7 +68,7 @@ var TopicDetailedView = Backbone.View.extend({
       if ($nextQ.length > 0) {
         $nextQ.fadeIn();
       } else {
-        self.$el.append('<a href="#" class="new-topic">Choose a new topic</a>');
+        self.$el.append('<a href="#" class="new-topic btn">New topic</a>');
       }
     });
 
@@ -165,7 +159,7 @@ $(document).ready(function(){
 
   // ========== STICKYHEADER
   $(window).on('scroll', function(){
-    if ($(window).scrollTop() > $banner.height()) {
+    if ($(window).scrollTop() > ($banner.height() - 5)) {
       $header.addClass('active');
       $main.addClass('active');
       $banner.hide();
