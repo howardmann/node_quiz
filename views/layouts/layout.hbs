@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="/javascripts/lib/jquery.js"></script>
-    <script src="/javascripts/lib/underscore.js"></script>
-    <script src="/javascripts/lib/backbone.js"></script>
-    <script src="/javascripts/lib/handlebars.js"></script>
-    <script src="/javascripts/main.js"></script>
   </head>
   <body>
+    <div id="banner" class="flex-valign">
+      <img class="pencil" src="images/pencil.svg" alt="pencil">
+      <p id="caption">It's time to play.</p>
+    </div>
     <header>
-      <h1>Trivia</h1>
-      <nav>
-        <a href="/#">Play</a>
-        <a href="/questions/new">Create</a>
-      </nav>
+      <div class="row">
+        <div class="col col-3 offset-1">
+          <a class="logo" href="#">Trivia</a>
+        </div>
+        <div class="col col-7 right sm-hide">
+          <nav>
+            <a href="#" class="play">Play</a>
+            <a href="/questions/new">Create</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     {{{body}}}
+
+  <!-- Load scripts -->
+  <script src="/javascripts/lib/jquery.js"></script>
+  <script src="/javascripts/lib/underscore.js"></script>
+  <script src="/javascripts/lib/backbone.js"></script>
+  <script src="/javascripts/lib/handlebars.js"></script>
+  <script src="/javascripts/main.js"></script>
   </body>
 </html>

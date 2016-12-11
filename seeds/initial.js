@@ -3,7 +3,10 @@ exports.seed = function(knex, Promise) {
   var topics = [
     {name: 'geography'},
     {name: 'movies'},
-    {name: 'celebrity'}
+    {name: 'celebrity'},
+    {name: 'JavaScript'},
+    {name: 'nature'},
+    {name: 'history'}
   ];
 
   var questions = [
