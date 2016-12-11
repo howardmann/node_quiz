@@ -37,7 +37,7 @@ var TopicDetailedView = Backbone.View.extend({
     'click .next': 'nextQuestion'
   },
 
-  template: Handlebars.compile('<h2>Trivia: {{name}}</h2>{{#each questions}} <div class="question"><p>Q: {{question}}?</p> <p> A: <a href="#" class="reveal-answer">Click to reveal</a> <span class="answer">{{answer}}</span></p><br/><p><a href="#" class="next">Next</a></p> </div>{{/each}}'),
+  template: Handlebars.compile('<div class="card-question  {{name}} flex-valign center"><p class="card-topic col col-11 offset-1 left">{{name}}</p>{{#each questions}} <div class="question"><p>Q: {{question}}?</p> <p> <a href="#" class="reveal-answer">Reveal</a> <span class="answer">{{answer}}</span></p><br/><p><a href="#" class="next">Next</a></p> </div>{{/each}}</div>'),
 
   render: function(){
     var $this = this.$el
@@ -76,7 +76,7 @@ var TopicDetailedView = Backbone.View.extend({
       if ($nextQ.length > 0) {
         $nextQ.fadeIn();
       } else {
-        self.$el.append('<a href="#">Choose a new topic</a>');
+        self.$el.append('<a href="#" class="new-topic">Choose a new topic</a>');
       }
     });
 
@@ -116,7 +116,7 @@ var Router = Backbone.Router.extend({
   },
 
   topicsShow: function(topic){
-    var topic = app.topics.findWhere('name',topic);
+    var topic = app.topics.findWhere({'name':topic});
     var view = new TopicDetailedView({model: topic});
     $('#main').html(view.render().el);
   }
@@ -137,8 +137,11 @@ $(document).ready(function(){
   var $banner = $('#banner');
   var $main = $('#main');
   var $pencil = $banner.find('.pencil');
-  var $play = $('.play');
   var $caption = $('#caption');
+
+  if ($('.new-express').length > 0) {
+    $banner.fadeOut();
+  }
 
   // ========== PENCIL ANIMATION
   $pencil.on('click', function(){
@@ -148,7 +151,7 @@ $(document).ready(function(){
     $caption.fadeOut(function(){
       $newCaption.fadeIn();
     });
-    $pencil.css('cursor', 'none');
+    $pencil.css('cursor', 'auto');
     $(this).off('click');
   });
 
@@ -157,9 +160,10 @@ $(document).ready(function(){
   });
 
   // ========= PLAY NAVIGATION
-  $play.on('click', function(e){
+  $('nav a').on('click', function(e){
     $banner.fadeOut();
   });
+
 
   // ========== STICKYHEADER
   $(window).on('scroll', function(){

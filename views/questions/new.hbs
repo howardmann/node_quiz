@@ -1,17 +1,20 @@
-<h2>Add new question</h2>
-<form action="/questions" method="post">
-  <p>Question:</p>
-  <p><input type="text" name="question" required=true autofocus=true></p>
+<div class="container new-express">
+  <h2>Add new question</h2>
+  <form action="/questions" method="post">
+    <p>Question:</p>
+    <p><input type="text" name="question" required=true autofocus=true></p>
 
-  <p>Answer:</p>
-  <p><input type="text" name="answer" required=true></p>
+    <p>Answer:</p>
+    <p><input type="text" name="answer" required=true></p>
 
-  <p>Topic:</p>
-  <select name="topic_id">
-    {{#each topics}}
-      <option value="{{id}}">{{name}}</option>
-    {{/each}}
-  </select>
+    <p>Topic:</p>
+    <select name="topic_id">
+      {{#each topics}}
+        <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
 
-  <p><input type="submit"></p>
-</form>
+    <p><input class="submit-question" type="submit"></p>
+  </form>
+
+</div>
