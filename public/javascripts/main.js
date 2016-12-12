@@ -49,6 +49,7 @@ define([
     app.topics.fetch().then(function(){
       app.Router = new Router();
       Backbone.history.start();
+      $('.pencil').trigger('click');
     });
 
     // ======== JQUERY VISUAL ANIMATIONS
