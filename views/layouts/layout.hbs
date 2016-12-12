@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800|Titillium+Web:400,900&text=TriviaPlayCreate" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900&text=TriviaPlayCreate" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -49,7 +49,7 @@
                       </g>
                   </g>
               </g>
-          </svg>          
+          </svg>
         </div>
         <!-- <img class="pencil" src="/images/pencil.svg" alt="pencil"> -->
         <p id="caption">It's time to play.</p>
@@ -71,7 +71,13 @@
 
     {{{body}}}
 
-  <!-- Load scripts -->
-  <script src="/javascripts/lib/require.js", data-main="/javascripts/require.config.js"></script>
+  <!-- Load requirejs from cdn with local fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js", data-main="/javascripts/require.config.js"></script>
+  <script type="text/javascript">
+    if (window.requirejs == undefined) {
+      document.write(unescape("%3Cscript '/javascripts/lib/require.js', data-main='/javascripts/require.config.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+
   </body>
 </html>
