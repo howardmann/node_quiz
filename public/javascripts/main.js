@@ -44,14 +44,6 @@ define([
   $(document).ready(function(){
     console.log('ready');
 
-    // ========= FETCH AND INITIALIZE BACKBONE
-    app.topics = new Topics();
-    app.topics.fetch().then(function(){
-      app.Router = new Router();
-      Backbone.history.start();
-      $('.pencil').trigger('click');
-    });
-
     // ======== JQUERY VISUAL ANIMATIONS
     // Cache jQuery selectors
     var $header = $('header');
@@ -82,6 +74,15 @@ define([
       $pencil.toggleClass('spin');
     });
 
+    // ========= FETCH AND INITIALIZE BACKBONE
+    app.topics = new Topics();
+    app.topics.fetch().then(function(){
+      app.Router = new Router();
+      Backbone.history.start();
+      $pencil.trigger('click');
+    });
+
+
     // ========== STICKYHEADER
     $(window).on('scroll', function(){
       if ($(window).scrollTop() > ($banner.height() - 5)) {
@@ -92,5 +93,8 @@ define([
         $(window).off('scroll');
       }
     });
+
+
+
   });
 });
