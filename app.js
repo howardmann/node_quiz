@@ -1,3 +1,4 @@
+var compression = require('compression');
 var express = require('express');
 var methodOverride = require('method-override');
 var sassMiddleware = require('node-sass-middleware');
@@ -9,6 +10,10 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+// compress all requests
+app.use(compression())
+
+// add all routes
 // view engine setup
 app.engine('hbs', require('express-handlebars')({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
