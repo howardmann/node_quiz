@@ -6,10 +6,12 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div id="banner" class="flex-valign">
-      <img class="pencil" src="/images/pencil.svg" alt="pencil">
-      <p id="caption">It's time to play.</p>
-    </div>
+    {{#unless create}}
+      <div id="banner" class="flex-valign">
+        <img class="pencil" src="/images/pencil.svg" alt="pencil">
+        <p id="caption">It's time to play.</p>
+      </div>
+    {{/unless}}
     <header>
       <div class="row">
         <div class="col col-3 offset-1">
@@ -27,11 +29,6 @@
     {{{body}}}
 
   <!-- Load scripts -->
-  <!-- <script src="/javascripts/lib/jquery.js"></script>
-  <script src="/javascripts/lib/underscore.js"></script>
-  <script src="/javascripts/lib/backbone.js"></script>
-  <script src="/javascripts/lib/handlebars.js"></script>
-  <script src="/javascripts/main.js"></script> -->
   <script src="/javascripts/lib/require.js", data-main="/javascripts/require.config.js"></script>
   </body>
 </html>

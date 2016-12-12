@@ -34,7 +34,8 @@ exports.new = (req, res, next) => {
     .then(data => {
       console.log(data.toJSON());
       res.render('questions/new', {
-        topics: data.toJSON()
+        topics: data.toJSON(),
+        create: true
       });
     }, next)
 

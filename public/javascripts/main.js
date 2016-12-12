@@ -60,12 +60,7 @@ define([
     var $caption = $('#caption');
 
 
-    // ==== FADE OUT BANNER WHEN CLICK PLAY OR NEW
-    // Div tag on Node server rendered page, fadeOut when on create page
-    if ($('.new-express').length > 0) {
-      $banner.fadeOut();
-    }
-    // Fade out when clicking the play button
+    // ==== FADE OUT BANNER WHEN CLICK PLAY
     $('nav a').on('click', function(e){
       $banner.fadeOut();
     });
