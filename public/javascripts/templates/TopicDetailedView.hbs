@@ -1,0 +1,8 @@
+<div class="card-question {{name}} center">
+  <p class="card-topic col col-11 offset-1 left">{{name}}</p>
+  {{#each questions}}
+    <div class="question col sm-col-12 col-8 offset-2">
+        <p>Q: {{question}}?</p>
+        <p> <a href="#" class="reveal-answer btn">Reveal</a> <span class="answer">{{answer}}</span></p><span><a href="#" class="next btn">Next</a></span> </div>
+  {{/each}}
+</div>
