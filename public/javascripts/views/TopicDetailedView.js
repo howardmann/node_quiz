@@ -34,10 +34,10 @@ define([
       // Refactored using jQuery promise and pipe vs. callback hell
       $target.fadeOut('fast').promise()
         .pipe(function(){
-          return $target.next('.answer').fadeIn(1500);
+          return $target.next('.answer').fadeIn('fast');
         })
         .pipe(function(){
-          return $target.closest('.question').find('.next').fadeIn('slow');
+          return $target.closest('.question').find('.next').fadeIn('fast');
         })
     },
 
