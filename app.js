@@ -65,4 +65,18 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Heroku Keep Alive Ping
+var http = require('http'); //importing http
+setInterval(function() {
+    http.get('http://backbone-quiz.herokuapp.com', function(res) {
+        if (res.statusCode !== 200) {
+            console.log('Heroku Keep Alive Ping: Error - Status Code ' +
+                res.statusCode);
+        }
+    }).on('error', function(err) {
+        console.log('Heroku Keep Alive Ping: Error - ' + err.message);
+    });
+}, 20 * 60 * 1000); // load every 20 minutes
+
+
 module.exports = app;
