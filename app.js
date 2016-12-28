@@ -76,19 +76,8 @@ setInterval(function() {
     }).on('error', function(err) {
         console.log('Heroku Keep Alive Ping: Error - ' + err.message);
     });
-}, 20 * 60 * 1000); // load every 20 minutes
+}, 29 * 60 * 1000); // load every 29 minutes
 
-// Test another site
-setInterval(function() {
-    http.get('http://bill-splittr.herokuapp.com', function(res) {
-        if (res.statusCode !== 200) {
-            console.log('Heroku Keep Alive Ping: Error - Status Code ' +
-                res.statusCode);
-        }
-    }).on('error', function(err) {
-        console.log('Heroku Keep Alive Ping: Error - ' + err.message);
-    });
-}, 20 * 60 * 1000); // load every 20 minutes
 
 
 module.exports = app;
